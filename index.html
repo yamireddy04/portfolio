@@ -8,9 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
-/* ============================================================
-   ROOT & RESET
-============================================================ */
 :root {
   --bg:#050508; --bg2:#0a0a0f; --bg3:#0f0f18;
   --glass:rgba(255,255,255,0.03);
@@ -25,23 +22,18 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;cursor:none}
 
-/* CURSOR */
 #cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;mix-blend-mode:screen}
 #cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(124,111,247,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
 a,button,.tilt-card{cursor:none}
 
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
 
-/* NEURAL BG */
 #neural-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-/* NOISE OVERLAY */
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.018;pointer-events:none;z-index:9990}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(5,5,8,.55);border-bottom:1px solid var(--glass-border);transition:padding .3s}
 .nav-logo{font-family:var(--font-mono);font-size:.85rem;color:var(--accent);letter-spacing:.12em;text-decoration:none}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
@@ -50,7 +42,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:
 .nav-links a:hover{color:var(--text)}
 .nav-links a:hover::after{transform:scaleX(1)}
 
-/* LAYOUT */
 section{position:relative;z-index:1}
 .section-inner{max-width:1200px;margin:0 auto;padding:0 4rem}
 .section-header{margin-bottom:4rem}
@@ -58,14 +49,11 @@ section{position:relative;z-index:1}
 .section-label::before{content:'';display:block;height:1px;width:36px;background:var(--accent2)}
 .section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
 
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
 .reveal.visible{opacity:1;transform:none}
 
-/* GLOW ORBS */
 .glow-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
 
-/* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero-content{position:relative;z-index:2;padding-top:7rem;padding-bottom:4rem}
 .hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-mono);font-size:.7rem;color:var(--accent2);letter-spacing:.18em;margin-bottom:1rem;opacity:0;transform:translateY(20px)}
@@ -92,7 +80,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 .tech-float{position:absolute;font-family:var(--font-mono);font-size:.62rem;color:rgba(124,111,247,.28);letter-spacing:.06em;pointer-events:none;animation:floatLabel 9s ease-in-out infinite}
 @keyframes floatLabel{0%,100%{transform:translateY(0) rotate(0deg);opacity:.28}50%{transform:translateY(-18px) rotate(4deg);opacity:.55}}
 
-/* ABOUT */
 #about{padding:8rem 0;background:rgba(5,5,8,.78)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
 .about-text p{color:var(--text2);margin-bottom:1.2rem;font-size:.97rem}
@@ -120,7 +107,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 .skill-tag{font-family:var(--font-mono);font-size:.62rem;color:var(--text2);border:1px solid var(--glass-border);border-radius:4px;padding:.28rem .58rem;letter-spacing:.05em;transition:all .2s}
 .skill-tag:hover{border-color:var(--accent);color:var(--accent);background:rgba(124,111,247,.08);transform:scale(1.06)}
 
-/* PROJECTS */
 #projects{padding:8rem 0;background:rgba(5,5,8,.78)}
 .projects-grid{display:grid;grid-template-columns:1fr;gap:2rem}
 .project-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;transition:border-color .4s,transform .4s;position:relative;overflow:hidden;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
@@ -141,9 +127,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 .project-features li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent2);flex-shrink:0}
 .project-features li:last-child{border-bottom:none}
 
-/* ============================================================
-   RESEARCH — with paper buttons
-============================================================ */
 #research{padding:8rem 0;background:rgba(10,10,15,.82)}
 .research-timeline{position:relative}
 .research-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
@@ -153,7 +136,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 .research-source{font-family:var(--font-mono);font-size:.65rem;color:var(--accent2);letter-spacing:.16em;margin-bottom:.8rem}
 .research-title{font-family:var(--font-display);font-size:1.12rem;font-weight:700;margin-bottom:.8rem;line-height:1.45;color:var(--text)}
 .research-desc{color:var(--text2);font-size:.9rem;line-height:1.7;margin-bottom:1.2rem}
-/* Paper button — ghost style matching portfolio aesthetic */
 .btn-paper{
   display:inline-flex;
   align-items:center;
@@ -191,9 +173,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   box-shadow:0 6px 20px rgba(0,212,170,.15);
 }
 
-/* ============================================================
-   WRITING — with read buttons on every card
-============================================================ */
 #writing{padding:8rem 0;background:rgba(5,5,8,.78)}
 .writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .writing-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column}
@@ -204,7 +183,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 .writing-card-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:.8rem;line-height:1.35}
 .writing-card-desc{color:var(--text2);font-size:.85rem;line-height:1.65;flex:1;margin-bottom:1.4rem}
 .writing-placeholder{font-family:var(--font-mono);font-size:.68rem;color:var(--text3);letter-spacing:.1em;text-align:center;padding:2rem 0;flex:1;margin-bottom:1.4rem}
-/* Read button — same ghost style as paper button but accent-colored */
 .btn-read{
   display:inline-flex;
   align-items:center;
@@ -230,7 +208,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   transform:translateY(-2px);
   box-shadow:0 6px 20px rgba(124,111,247,.18);
 }
-/* Coming-soon button variant — muted */
 .btn-read-muted{
   color:var(--text3);
   background:rgba(255,255,255,.02);
@@ -244,18 +221,13 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   box-shadow:none;
 }
 
-/* ============================================================
-   CONTACT — symmetry fix: both columns align at top equally
-============================================================ */
 #contact{padding:8rem 0;background:rgba(10,10,15,.82)}
 .contact-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:5rem;
-  /* align-items:start keeps both columns top-aligned, which is correct */
   align-items:start;
 }
-/* ---- LEFT COLUMN ---- */
 .contact-left{display:flex;flex-direction:column}
 .contact-info-text{color:var(--text2);margin-bottom:2rem;font-size:.97rem;line-height:1.8}
 .contact-links{display:flex;flex-direction:column;gap:.9rem}
@@ -264,7 +236,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 .contact-link-icon{width:36px;height:36px;background:rgba(124,111,247,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .contact-link-label{font-size:.82rem;font-weight:600;margin-bottom:.15rem}
 .contact-link-val{font-family:var(--font-mono);font-size:.72rem;color:var(--text2);letter-spacing:.04em}
-/* ---- RIGHT COLUMN — form sits at same top edge as left ---- */
 .contact-right{display:flex;flex-direction:column}
 .contact-form{display:flex;flex-direction:column;gap:1.1rem}
 .form-input,.form-textarea{
@@ -282,14 +253,12 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 }
 .form-input:focus,.form-textarea:focus{border-color:var(--accent);background:rgba(124,111,247,.03)}
 .form-input::placeholder,.form-textarea::placeholder{color:var(--text3)}
-/* Textarea height — match left column height minus inputs above it */
 .form-textarea{height:160px}
 .btn-send{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:1rem 2rem;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;transition:all .3s;cursor:none}
 .btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(124,111,247,.45)}
 .send-arrow{display:inline-block;transition:transform .3s}
 .btn-send:hover .send-arrow{transform:translate(4px,-4px)}
 
-/* RESPONSIVE */
 @media(max-width:960px){
   nav{padding:1rem 2rem}
   .nav-links{display:none}
@@ -308,14 +277,11 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
 </head>
 <body>
 
-<!-- CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- GLOBAL NEURAL BG -->
 <canvas id="neural-bg"></canvas>
 
-<!-- ===================== NAV ===================== -->
 <nav id="navbar">
   <a href="#" class="nav-logo">YG_</a>
   <ul class="nav-links">
@@ -328,7 +294,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </ul>
 </nav>
 
-<!-- ===================== HERO ===================== -->
 <section id="hero">
   <span class="tech-float" style="top:18%;left:7%;animation-delay:0s">Python</span>
   <span class="tech-float" style="top:32%;left:2.5%;animation-delay:1.6s">NLP</span>
@@ -371,7 +336,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </div>
 </section>
 
-<!-- ===================== ABOUT ===================== -->
 <section id="about">
   <div class="glow-orb" style="width:500px;height:500px;background:rgba(124,111,247,.04);top:-80px;right:-180px"></div>
   <div class="section-inner">
@@ -407,7 +371,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </div>
 </section>
 
-<!-- ===================== SKILLS ===================== -->
 <section id="skills">
   <div class="section-inner">
     <div class="section-header reveal">
@@ -465,7 +428,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </div>
 </section>
 
-<!-- ===================== PROJECTS ===================== -->
 <section id="projects">
   <div class="glow-orb" style="width:600px;height:600px;background:rgba(0,212,170,.03);bottom:-80px;left:-180px"></div>
   <div class="section-inner">
@@ -563,8 +525,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </div>
 </section>
 
-<!-- ===================== RESEARCH ===================== -->
-<!-- CHANGE 4: Each paper now has a "Read Preprint ↗" button linking to the paper -->
 <section id="research">
   <div class="section-inner">
     <div class="section-header reveal">
@@ -601,8 +561,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </div>
 </section>
 
-<!-- ===================== WRITING ===================== -->
-<!-- CHANGE 1: Every card now has a read button -->
 <section id="writing">
   <div class="section-inner">
     <div class="section-header reveal">
@@ -639,14 +597,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </div>
 </section>
 
-<!-- ===================== CONTACT ===================== -->
-<!--
-  CHANGE 3: Symmetry fix.
-  Both columns use align-items:start on the grid so they share the same top edge.
-  The left column wraps everything (text + cards) in .contact-left with no extra top padding.
-  The right column wraps the form in .contact-right with no extra top padding.
-  This ensures both sides start at exactly the same vertical position.
--->
 <section id="contact">
   <div class="section-inner">
     <div class="section-header reveal">
@@ -655,7 +605,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
     </div>
     <div class="contact-grid">
 
-      <!-- LEFT: info -->
       <div class="contact-left reveal">
         <p class="contact-info-text">I'm always open to discussing research collaborations, full-time opportunities, or interesting AI/ML projects. Feel free to reach out.</p>
         <div class="contact-links">
@@ -678,7 +627,6 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
         </div>
       </div>
 
-      <!-- RIGHT: form -->
       <div class="contact-right reveal">
         <form class="contact-form" onsubmit="handleFormSubmit(event)">
           <input type="text"  class="form-input"    placeholder="Your Name"    required>
@@ -693,11 +641,8 @@ h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.4vw,4.2rem);font-wei
   </div>
 </section>
 
-<!-- FOOTER REMOVED (Change 2) -->
 
-<!-- ===================== JAVASCRIPT ===================== -->
 <script>
-/* ---- CURSOR ---- */
 const cursor = document.getElementById('cursor');
 const ring   = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -723,7 +668,6 @@ document.querySelectorAll('a,button,.tilt-card').forEach(el=>{
   });
 });
 
-/* ---- GLOBAL NEURAL NETWORK BG ---- */
 (function initNeuralBG(){
   const canvas=document.getElementById('neural-bg');
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
@@ -772,7 +716,6 @@ document.querySelectorAll('a,button,.tilt-card').forEach(el=>{
   });
 })();
 
-/* ---- SKILLS 3D SPHERE ---- */
 (function initSkillsSphere(){
   const canvas=document.getElementById('skills-canvas');
   const wrap=document.getElementById('skills-canvas-wrap');
@@ -811,7 +754,6 @@ document.querySelectorAll('a,button,.tilt-card').forEach(el=>{
   })();
 })();
 
-/* ---- HERO STAGGERED ENTRANCE ---- */
 [
   ['#hero-tag',200],['#hero-name',400],['#hero-h1',650],
   ['#hero-sub',950],['#hero-desc',1150],['#hero-btns',1350],
@@ -822,13 +764,11 @@ document.querySelectorAll('a,button,.tilt-card').forEach(el=>{
   setTimeout(()=>{el.style.transition='opacity .85s ease,transform .85s ease';el.style.opacity='1';el.style.transform='none';},delay);
 });
 
-/* ---- SCROLL REVEAL ---- */
 const revealIO=new IntersectionObserver((entries)=>{
   entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});
 },{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>revealIO.observe(el));
 
-/* ---- TILT ON PROJECT CARDS ---- */
 document.querySelectorAll('.tilt-card').forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const r=card.getBoundingClientRect();
@@ -843,7 +783,6 @@ document.querySelectorAll('.tilt-card').forEach(card=>{
   });
 });
 
-/* ---- NAV SHRINK + ACTIVE HIGHLIGHT ---- */
 const navbar=document.getElementById('navbar');
 const sections=document.querySelectorAll('section[id]');
 const navAs=document.querySelectorAll('.nav-links a');
@@ -854,7 +793,6 @@ window.addEventListener('scroll',()=>{
   navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--accent)':'';});
 });
 
-/* ---- CONTACT FORM ---- */
 function handleFormSubmit(e){
   e.preventDefault();
   const btn=e.target.querySelector('.btn-send');
