@@ -1,23 +1,35 @@
-# Yamini G — Portfolio
+# Yamini G — AI Engineer
 
-My Personal portfolio website
+Building production-grade LLM systems, NLP pipelines, and full-stack AI applications focused on reliability and real-world deployment.
 
-**Live site:** https://yamini-portfolio-ten.vercel.app/
+### 🌐 Live Portfolio: https://yamini-portfolio-ten.vercel.app/
 
-## About
+Explore all projects, demos, and system architectures here.
 
-A dark-themed, interactive portfolio built as a single HTML file with Three.js neural network background, 3D skills sphere, and glassmorphism UI.
+---
 
-## Sections
+### About This Repository
 
-- Hero — identity & links
-- About — bio, stats, focus areas
-- Skills — interactive 3D sphere + categorised stack
-- Projects — PrepSphere, MindNook, Fake News Detector
-- Research — IEEE/TechRxiv preprint publications
-- Writing — blog & articles
-- Contact — form + social links
+This repository contains the source code for my portfolio website.
 
-## Tech
+It showcases applied AI systems, LLM-based applications, and full-stack projects with a focus on:
+- Production deployment
+- System design
+- Model evaluation and reliability
 
-Three.js · HTML · CSS · Vanilla JS
+---
+
+### Focus Areas
+
+- LLM orchestration and evaluation  
+- Multi-signal NLP systems  
+- AI reliability and hallucination analysis  
+- Full-stack AI deployment (Vercel, Render, Supabase)
+
+---
+
+### 📬 Contact
+
+- LinkedIn: https://www.linkedin.com/in/yamini-gabu/
+- Email: saiyaminireddy@gmail.com
+
